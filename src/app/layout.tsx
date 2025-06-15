@@ -34,19 +34,19 @@ export default function RootLayout({
             border-b px-5 py-2.5 backdrop-blur"
         >
           <div>
-            <Link href={homePath()} className="flex items-center gap-2">
+            <Link href={homePath()} className="text-xl font-bold">
               Home
             </Link>
           </div>
           <div>
-            <Link href={ticketsPath()} className="text-xl font-bold">
+            <Link href={ticketsPath()} className="text-lg underline">
               Tickets
             </Link>
           </div>
         </nav>
         <main
           className="bg-secondary/20 flex min-h-svh flex-1 flex-col overflow-x-hidden overflow-y-auto
-            px-8 py-2"
+            px-8 py-24"
         >
           {children}
         </main>

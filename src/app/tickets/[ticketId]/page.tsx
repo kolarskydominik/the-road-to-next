@@ -18,7 +18,7 @@ const TicketPage = async ({ params }: TicketPageProps) => {
   return (
     <div>
       <div>{ticket.title}</div>
-      <div>{ticket.description}</div>
+      <div>{ticket.content}</div>
       <div>{ticket.status}</div>
 
       <Link href={ticketsPath()} className="underline">
