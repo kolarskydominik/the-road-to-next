@@ -14,7 +14,7 @@ type TicketPageProps = {
 const TicketPage = async ({ params }: TicketPageProps) => {
   const { ticketId } = await params;
   const ticket = initialTickets.find((t) => t.id === ticketId);
-
+  
   if (!ticket) {
     return (
       <Placeholder
