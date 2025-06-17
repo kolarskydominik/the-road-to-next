@@ -8,9 +8,11 @@ const TicketsPage = () => {
     <div className="flex flex-1 flex-col gap-y-8">
       <Heading title="Tickets" description="All your tickets at one place" />
 
+      {/* <ErrorBoundary fallback={<Placeholder label="Something went wrong" />}> */}
       <Suspense fallback={<Loader />}>
         <TicketList />
       </Suspense>
+      {/* </ErrorBoundary> */}
     </div>
   );
 };
