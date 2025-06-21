@@ -1,9 +1,10 @@
-import { LucideSquareArrowOutUpRight } from 'lucide-react';
+import { LucideSquareArrowOutUpRight, LucideTrash } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { ticketPath } from '@/paths';
+import { deleteTicket } from '../actions/delete-ticket';
 import { TICKETS_ICONS } from '../constants';
 import { getTicket } from '../queries/get-ticket';
 import { getTickets } from '../queries/get-tickets';
@@ -27,6 +28,15 @@ const TicketItem = ({ ticket, isDetail }: Props) => {
       </Link>
     </Button>
   );
+
+  const deleteButton = (
+    <form action={deleteTicket.bind(null, ticket.id)}>
+      <Button variant={'outline'} size={'icon'} type="submit">
+        <LucideTrash className="size-4" />
+      </Button>
+    </form>
+  );
+
   return (
     <div
       className={cn(
@@ -52,9 +62,9 @@ const TicketItem = ({ ticket, isDetail }: Props) => {
           </p>
         </CardContent>
       </Card>
-      {isDetail ? null : (
-        <div className="flex flex-col gap-y-1">{detailButton}</div>
-      )}
+      <div className="flex flex-col gap-y-1">
+        {isDetail ? deleteButton : detailButton}
+      </div>
     </div>
   );
 };
