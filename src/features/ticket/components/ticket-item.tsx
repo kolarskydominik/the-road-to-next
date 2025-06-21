@@ -1,3 +1,4 @@
+import { Ticket } from '@prisma/client';
 import { LucideSquareArrowOutUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -5,10 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { ticketPath } from '@/paths';
 import { TICKETS_ICONS } from '../constants';
-import { TicketType } from '../types';
 
 type Props = {
-  ticket: TicketType;
+  ticket: Ticket;
   isDetail?: boolean;
 };
 
