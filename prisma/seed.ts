@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 const tickets = [
   {
@@ -18,12 +16,12 @@ const tickets = [
 ];
 
 const seed = async () => {
-  console.time("DB Seeding");
+  console.time('DB Seeding');
   await prisma.ticket.deleteMany();
   await prisma.ticket.createMany({
     data: tickets,
   });
-  console.timeEnd("DB Seeding");
+  console.timeEnd('DB Seeding');
 };
 
 seed();
